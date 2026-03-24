@@ -1,0 +1,641 @@
+/* Setting.css - Colorful Settings Page Styling */
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Settings Container */
+.settings-container {
+  font-family: 'Poppins', sans-serif;
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e9ecf5 100%);
+  transition: all 0.3s ease;
+}
+
+/* Dark Mode Styles */
+body.dark .settings-container {
+  background: linear-gradient(135deg, #1a1c2c 0%, #2a2d3e 100%);
+  color: #fff;
+}
+
+body.dark .settings-section {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark .settings-section h3 {
+  color: #fff;
+}
+
+body.dark input {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+body.dark input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+body.dark label {
+  color: #e0e0e0;
+}
+
+/* Main Title */
+.settings-container h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  background: linear-gradient(135deg, #667eea, #764ba2, #ff6b6b, #feca57);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 300%;
+  animation: gradientFlow 8s ease infinite;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.settings-container h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea, #764ba2, #ff6b6b);
+  border-radius: 4px;
+  animation: lineWidth 3s ease-in-out infinite;
+}
+
+@keyframes gradientFlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes lineWidth {
+  0%, 100% { width: 100px; }
+  50% { width: 200px; }
+}
+
+/* Settings Sections Grid */
+.settings-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 30px;
+}
+
+.settings-section {
+  background: white;
+  border-radius: 25px;
+  padding: 30px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.6s ease;
+  animation-fill-mode: both;
+}
+
+.settings-section:nth-child(1) { animation-delay: 0.1s; }
+.settings-section:nth-child(2) { animation-delay: 0.2s; }
+.settings-section:nth-child(3) { animation-delay: 0.3s; }
+.settings-section:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.settings-section:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(102, 126, 234, 0.3);
+}
+
+/* Section Header with Gradient Border */
+.settings-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #667eea, #764ba2, #ff6b6b, #feca57);
+  background-size: 300% 300%;
+  animation: sectionGradient 3s ease infinite;
+}
+
+@keyframes sectionGradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Section Icons (Optional - if you want to add icons) */
+.settings-section h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.settings-section h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea, transparent);
+  border-radius: 3px;
+  transition: width 0.3s;
+}
+
+.settings-section:hover h3::after {
+  width: 100px;
+}
+
+/* Forms Styling */
+.profile-form,
+.password-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Input Fields */
+.settings-section input {
+  padding: 15px 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 15px;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s;
+  background: white;
+  outline: none;
+}
+
+/* Individual Input Colors */
+.profile-form input[type="text"] {
+  border-left: 5px solid #667eea;
+  background: linear-gradient(135deg, #f0f5ff, #ffffff);
+}
+
+.profile-form input[type="email"] {
+  border-left: 5px solid #764ba2;
+  background: linear-gradient(135deg, #f5f0ff, #ffffff);
+}
+
+.password-form input[type="password"]:nth-of-type(1) {
+  border-left: 5px solid #ff6b6b;
+  background: linear-gradient(135deg, #fff5f5, #ffffff);
+}
+
+.password-form input[type="password"]:nth-of-type(2) {
+  border-left: 5px solid #43e97b;
+  background: linear-gradient(135deg, #f0fff4, #ffffff);
+}
+
+.password-form input[type="password"]:nth-of-type(3) {
+  border-left: 5px solid #feca57;
+  background: linear-gradient(135deg, #fff9f0, #ffffff);
+}
+
+/* Input Focus Effects */
+.settings-section input:focus {
+  transform: translateY(-3px) scale(1.02);
+  border-color: transparent;
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3), 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.settings-section input:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons */
+.settings-section button {
+  padding: 15px 25px;
+  border: none;
+  border-radius: 15px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.4s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.profile-form button {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+.password-form button {
+  background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+  color: white;
+}
+
+/* Button Shine Effect */
+.settings-section button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.settings-section button:hover::before {
+  left: 100%;
+}
+
+.settings-section button:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+}
+
+.settings-section button:active {
+  transform: translateY(2px) scale(0.98);
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 15px 20px;
+  background: linear-gradient(135deg, #f0f5ff, #ffffff);
+  border-radius: 15px;
+  transition: all 0.3s;
+  border-left: 5px solid #feca57;
+}
+
+.theme-toggle:hover {
+  transform: translateX(10px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle input[type="checkbox"] {
+  width: 60px;
+  height: 30px;
+  appearance: none;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 30px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle input[type="checkbox"]::before {
+  content: '';
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  background: white;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: all 0.3s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle input[type="checkbox"]:checked {
+  background: linear-gradient(135deg, #2d3748, #1a202c);
+}
+
+.theme-toggle input[type="checkbox"]:checked::before {
+  left: 32px;
+}
+
+/* Notifications Section */
+.notifications {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.notifications label {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #f8f9ff, #ffffff);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-left: 5px solid transparent;
+}
+
+.notifications label:nth-child(1) {
+  border-left-color: #4facfe;
+}
+
+.notifications label:nth-child(2) {
+  border-left-color: #fa709a;
+}
+
+.notifications label:nth-child(3) {
+  border-left-color: #43e97b;
+}
+
+.notifications label:hover {
+  transform: translateX(10px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+}
+
+.notifications input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #667eea;
+  transition: all 0.3s;
+}
+
+.notifications input[type="checkbox"]:hover {
+  transform: scale(1.1);
+}
+
+/* Success/Error Messages */
+.alert {
+  padding: 15px 20px;
+  border-radius: 12px;
+  margin-top: 15px;
+  font-weight: 500;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.alert.success {
+  background: linear-gradient(135deg, #43e97b, #38f9d7);
+  color: white;
+  box-shadow: 0 5px 15px rgba(67, 233, 123, 0.3);
+}
+
+.alert.error {
+  background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+  color: white;
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+/* Loading State */
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Password Strength Meter */
+.password-strength {
+  margin-top: 10px;
+  height: 5px;
+  background: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.password-strength-bar {
+  height: 100%;
+  width: 0%;
+  transition: width 0.3s, background 0.3s;
+}
+
+.password-strength-bar.weak {
+  background: linear-gradient(90deg, #ff6b6b, #ff8e53);
+  width: 33.33%;
+}
+
+.password-strength-bar.medium {
+  background: linear-gradient(90deg, #feca57, #ffd700);
+  width: 66.66%;
+}
+
+.password-strength-bar.strong {
+  background: linear-gradient(90deg, #43e97b, #38f9d7);
+  width: 100%;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .settings-container {
+    padding: 20px;
+    grid-template-columns: 1fr;
+  }
+
+  .settings-container h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .settings-section {
+    padding: 20px;
+  }
+
+  .settings-section h3 {
+    font-size: 1.3rem;
+  }
+
+  .settings-section input {
+    padding: 12px 15px;
+    font-size: 0.95rem;
+  }
+
+  .settings-section button {
+    padding: 12px 20px;
+    font-size: 0.95rem;
+  }
+
+  .theme-toggle {
+    padding: 12px 15px;
+  }
+
+  .notifications label {
+    padding: 10px 15px;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #764ba2, #667eea);
+}
+
+/* Tooltip Styles */
+[data-tooltip] {
+  position: relative;
+  cursor: help;
+}
+
+[data-tooltip]:hover::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 12px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  font-size: 0.85rem;
+  border-radius: 8px;
+  white-space: nowrap;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+/* Settings Card Footer */
+.settings-footer {
+  margin-top: 30px;
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  grid-column: 1 / -1;
+}
+
+body.dark .settings-footer {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.settings-footer p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+body.dark .settings-footer p {
+  color: #aaa;
+}
+
+/* Animation for Save Success */
+@keyframes saveSuccess {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(67, 233, 123, 0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.save-success {
+  animation: saveSuccess 0.5s ease;
+}
+
+/* Disabled State */
+.settings-section input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: #f5f5f5;
+}
+
+/* Print Styles */
+@media print {
+  .settings-container {
+    background: white;
+    padding: 20px;
+  }
+
+  .settings-section {
+    box-shadow: none;
+    border: 1px solid #ddd;
+    break-inside: avoid;
+  }
+
+  button,
+  .theme-toggle input,
+  .notifications input {
+    display: none;
+  }
+}
+
+/* Settings Section Icons (if you want to add them) */
+.section-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: white;
+  margin-right: 10px;
+}
+
+.icon-profile {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.icon-password {
+  background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+}
+
+.icon-theme {
+  background: linear-gradient(135deg, #feca57, #ffd700);
+}
+
+.icon-notifications {
+  background: linear-gradient(135deg, #43e97b, #38f9d7);
+}

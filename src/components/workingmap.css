@@ -1,0 +1,19 @@
+/* src/components/WorkingMap.css */
+.map-wrapper {
+  width: 100%;
+  height: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.leaflet-map {
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+}
